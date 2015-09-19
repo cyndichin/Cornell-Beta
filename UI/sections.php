@@ -92,58 +92,146 @@
         <div class="row">
             <div class="col-md-7">
 			
-                    <img class="img-responsive" src="img/integralsymbol.png" alt="">
+                <img class="img-responsive" src="img/integralsymbol.png" alt="">
 
 				<form action="sections.php" method="post" id="integralA">
-				<input class="upperbound" type="text" name="upperbound">
+				<input class="upperbound" type="text" name="upperbound" va;ue="3">
 				<br>
 				<input class="lowerbound" type="text" name="lowerbound">
 				<input class="value" type="text" name="value">
-				
-					<img class="d" class="img-responsive" src="img/d.png" alt="">
-					
+				<img class="d" class="img-responsive" src="img/d.png" alt="">
 				<input class="variable" type="text" name="variable">
 				
-                <div class="col-md-5">
+                <div class="col-md-7">
                 <h3>Integrate</h3>
                 <h4>Enter your inputs.</h4>
                 <p>When done, press integrate</p>
-                 <input type="submit" class="btn btn-primary" value="Integrate!" style="width:150px">
-                
-				</div>
-               </form>
                 
 <?php 
 if(!empty($_POST["upperbound"]) && !empty($_POST["lowerbound"])){
     echo "Upperbound: ".$_POST["upperbound"]."<br> Lodfsdfwerbound: ".$_POST["lowerbound"];
+    $value = "integrate from ".$_POST["lowerbound"]." to ".$_POST["upperbound"]." (".$_POST["value"].") d".$_POST["variable"];
 }else{
-    echo "Must enter both a lower and upperbound";
-	
+    echo "Must enter both a lower and upperbound";	
 }
-                ?>
-                
-                <?php
-include 'WolframAlphaEngine.php';
-$engine = new WolframAlphaEngine( 'API-KEY' );
+  include 'WolframAlphaEngine.php';
+?>
 
-$resp = $engine->getResults("2+2");
+<?php
 
-$pod = $resp->getPods();
+  $queryIsSet = isset($value);
+  if ($queryIsSet) {
+    echo $value;
+  };
+?>
+&nbsp;&nbsp; <br><br>
+ <input type="submit" class="btn btn-primary" value="Integrate!" style="width:150px">
+                       
+</form>
+   <div class="col-md-5">
+<br><br>
+<hr>
+<?php  
+  $appID = '28E2T9-P7UTYL2JGT';
 
-$pod = $pod[1];
+  if (!$queryIsSet) die();
 
-foreach($pod->getSubpods() as $subpod){
-  if($subpod->plaintext){
-    $plaintext = $subpod->plaintext;
-    break;
+  $qArgs = array();
+  if (isset($_REQUEST['assumption']))
+    $qArgs['assumption'] = $_REQUEST['assumption'];
+
+  // instantiate an engine object with your app id
+  $engine = new WolframAlphaEngine( $appID );
+
+  // we will construct a basic query to the api with the input 'pi'
+  // only the bare minimum will be used
+  $response = $engine->getResults( $value, $qArgs);
+
+  // getResults will send back a WAResponse object
+  // this object has a parsed version of the wolfram alpha response
+  // as well as the raw xml ($response->rawXML) 
+  
+  // we can check if there was an error from the response object
+  if ( $response->isError() ) {
+?>
+  <h1>There was an error in the request</h1>
+  </body>
+  </html>
+<?php
+    die();
   }
-}
+?>
 
-$result = substr($plaintext, 0,strlen($plaintext)-3);
+<h1>Results</h1>
+<br>
 
-echo $plaintext;
-?><br>
+<?php
+  // if there are any assumptions, display them 
+  if ( count($response->getAssumptions()) > 0 ) {
+?>
+    <h2>Assumptions:</h2>
+    <ul>
+<?php
+      // assumptions come as a hash of type as key and array of assumptions as value
+      foreach ( $response->getAssumptions() as $type => $assumptions ) {
+?>
+        <li><?php echo $type; ?>:<br>
+          <ol>
+<?php
+          foreach ( $assumptions as $assumption ) {
+?>
+            <li><?php echo $assumption->name ." - ". $assumption->description;?>, to change search to this assumption <a href="simpleRequest.php?q=<?php echo urlencode($_REQUEST['q']);?>&assumption=<?php echo $assumption->input;?>">click here</a></li>
+<?php
+          }
+?>
+          </ol>
+        </li>
+<?php
+      }
+?>
+      
+    </ul>
+<?php
+  }
+?>
 
+<hr>
+
+<?php
+  // if there are any pods, display them
+  if ( count($response->getPods()) > 0 ) {
+?>
+    <h2>Pods</h2>
+    <table border=1 width="80%" align="center">
+<?php
+    foreach ( $response->getPods() as $pod ) {
+?>
+      <tr>
+        <td>
+          <h3><?php echo $pod->attributes['title']; ?></h3>
+<?php
+        // each pod can contain multiple sub pods but must have at least one
+        foreach ( $pod->getSubpods() as $subpod ) {
+          // if format is an image, the subpod will contain a WAImage object
+?>
+          <img src="<?php echo $subpod->image->attributes['src']; ?>">
+          <hr>
+<?php
+        }
+?>
+          
+        </td>
+      </tr>
+<?php
+    }
+?>
+    </table>
+<?php
+  }
+?>
+<br>
+                </div>
+            
                 
             </div>
             
