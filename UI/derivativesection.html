@@ -17,6 +17,18 @@
     <!-- Custom CSS -->
     <link href="css/1-col-portfolio.css" rel="stylesheet">
 
+	<style>
+		input { position: absolute;
+				display: inline; 
+				width: 40px; 
+				height: 40px;
+				font-size: 30px;}
+
+		input.value { top: 70px; left: 150px; width: 180px; }
+		input.variable { top: 120px; left: 70px }		
+
+	</style>
+	
 </head>
 
 <body>
@@ -72,14 +84,16 @@
         <!-- Project One -->
         <div class="row">
             <div class="col-md-7">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-                </a>
+
+			<img class="img-responsive" src="img/derivativesymbol.png" alt="">
+			<input class="variable" type="text" name="variable">
+			<input class="value" type="text" name="value">
+
             </div>
             <div class="col-md-5">
-                <h3>Derivatives 1</h3>
-                <h4>Subheading</h4>
-                <p>More information here.</p>
+                <h3>Derive</h3>
+                <h4>When done, press derive</h4>
+                <p>Enter input values</p>
                 <a class="btn btn-primary" href="#">Get Solutions<span class="glyphicon glyphicon-chevron-right"></span></a>
             </div>
         </div>
