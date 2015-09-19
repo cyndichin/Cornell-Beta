@@ -19,13 +19,21 @@
 	
 	<style>
 		img { display: inline}
+		img.d { position: absolute; top: 10px; left: 450px;}
 		input { position: absolute;
 				display: inline; 
-				width: 60px; 
-				height: 60px;}
+				width: 40px; 
+				height: 40px;
+				font-size: 30px;}
 				
-		input.upperbound { top: 20px; left: 250px;}
-		input.lowerbound { top: 250px; left: 250px}
+		input.upperbound { top: 10px; left: 200px;}
+		input.lowerbound { top: 220px; left: 200px}
+		input.value { top: 120px; left: 250px; width: 200px; }
+		input.variable { top: 120px; left: 550px }
+		input.integrate { width: 100px; }
+		
+		div.col-md-5 { display: inline; position: absolute; top: 10px; left: 650px; }
+
 	</style>
 
 </head>
@@ -89,22 +97,28 @@
 				<form action="sections.php" method="post" id="integralA">
 				<input class="upperbound" type="text" name="upperbound">
 				<br>
-
 				<input class="lowerbound" type="text" name="lowerbound">
+				<input class="value" type="text" name="value">
+				
+					<img class="d" class="img-responsive" src="img/d.png" alt="">
+					
+				<input class="variable" type="text" name="variable">
+				
                 <div class="col-md-5">
-                <h3>Integrals 1</h3>
-                <h4>Subheading</h4>
-                <p>More information here.</p>
-                 <input type="submit" class="btn btn-primary" value="Submit form">
+                <h3>Integrate</h3>
+                <h4>Enter your inputs.</h4>
+                <p>When done, press integrate</p>
+                 <input type="submit" class="btn btn-primary" value="Integrate!" style="width:150px">
                 
-            </div>
+				</div>
                </form>
                 
 <?php 
 if(!empty($_POST["upperbound"]) && !empty($_POST["lowerbound"])){
-    echo "Upperbound: ".$_POST["upperbound"]."<br> Lowerbound: ".$_POST["lowerbound"];
+    echo "Upperbound: ".$_POST["upperbound"]."<br> Lodfsdfwerbound: ".$_POST["lowerbound"];
 }else{
     echo "Must enter both a lower and upperbound";
+	
 }
                 ?><br>
 
@@ -116,78 +130,6 @@ if(!empty($_POST["upperbound"]) && !empty($_POST["lowerbound"])){
 
         <hr>
 
-        <!-- Project Two -->
-        <div class="row">
-            <div class="col-md-7">
-                <a href="#">
-                    <img class="img-responsive" src="img/integralsymbol.png" alt="">
-                </a>
-            </div>
-            <div class="col-md-5">
-                <h3>Integrals 2</h3>
-                <h4>Subheading</h4>
-                <p>More information here.</p>
-                <a class="btn btn-primary" href="#">Get Solutions<span class="glyphicon glyphicon-chevron-right"></span></a>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <hr>
-
-        <!-- Project Three -->
-        <div class="row">
-            <div class="col-md-7">
-                <a href="#">
-                    <img class="img-responsive" src="img/integralsymbol.png" alt="">
-                </a>
-            </div>
-            <div class="col-md-5">
-                <h3>Integrals 3</h3>
-                <h4>Subheading</h4>
-                <p>More information here!</p>
-                <a class="btn btn-primary" href="#">Get Solutions<span class="glyphicon glyphicon-chevron-right"></span></a>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <hr>
-
-        <!-- Project Four -->
-        <div class="row">
-
-            <div class="col-md-7">
-                <a href="#">
-                    <img class="img-responsive" src="img/integralsymbol.png" alt="">
-                </a>
-            </div>
-            <div class="col-md-5">
-                <h3>Integrals 4</h3>
-                <h4>Subheading</h4>
-                <p>More information here</p>
-                <a class="btn btn-primary" href="#">Get Solutions<span class="glyphicon glyphicon-chevron-right"></span></a>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <hr>
-
-        <!-- Project Five -->
-        <div class="row">
-            <div class="col-md-7">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-                </a>
-            </div>
-            <div class="col-md-5">
-                <h3>Integrals Five</h3>
-                <h4>Subheading</h4>
-                <p>More information here</p>
-                <a class="btn btn-primary" href="#">Get Solutions <span class="glyphicon glyphicon-chevron-right"></span></a>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <hr>
 
         <hr>
 
