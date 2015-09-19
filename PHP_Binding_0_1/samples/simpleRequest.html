@@ -1,0 +1,40 @@
+<?php
+  include '../wa_wrapper/WolframAlphaEngine.php';
+?>
+<html>
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+<?php  
+  $appID = '28E2T9-P7UTYL2JGT';
+# the WolframAlphaEngine class has a constructor that
+# requires you to pass it your app id.
+$engine = new WolframAlphaEngine( $appID );
+
+# now you are ready to query the API for results
+$response = $engine->getResults( $_REQUEST['pi'] );
+
+# the getResults function will query/parse the API
+# and return a WAResponse object. Now you are ready to display
+# info back to the user. You can check if the API errored out
+if ( $response->isError ) {
+?>
+  <h1>There was an error in the request</h1>
+  </body>
+  </html>
+<?php
+    die();
+  }
+
+# you can loop through the pods if any were returned
+if ( count($response->getPods()) > 0 ) {
+  foreach ( $response->getPods() as $pod ) {
+
+  }
+}
+
+
+
+</body>
+</html>
