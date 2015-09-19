@@ -120,7 +120,29 @@ if(!empty($_POST["upperbound"]) && !empty($_POST["lowerbound"])){
     echo "Must enter both a lower and upperbound";
 	
 }
-                ?><br>
+                ?>
+                
+                <?php
+include 'WolframAlphaEngine.php';
+$engine = new WolframAlphaEngine( 'API-KEY' );
+
+$resp = $engine->getResults("2+2");
+
+$pod = $resp->getPods();
+
+$pod = $pod[1];
+
+foreach($pod->getSubpods() as $subpod){
+  if($subpod->plaintext){
+    $plaintext = $subpod->plaintext;
+    break;
+  }
+}
+
+$result = substr($plaintext, 0,strlen($plaintext)-3);
+
+echo $plaintext;
+?><br>
 
                 
             </div>
