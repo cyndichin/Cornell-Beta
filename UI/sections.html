@@ -16,6 +16,17 @@
 
     <!-- Custom CSS -->
     <link href="css/1-col-portfolio.css" rel="stylesheet">
+	
+	<style>
+		img { display: inline}
+		input { position: absolute;
+				display: inline; 
+				width: 60px; 
+				height: 60px;}
+				
+		input.upperbound { top: 20px; left: 250px;}
+		input.lowerbound { top: 250px; left: 250px}
+	</style>
 
 </head>
 
@@ -72,13 +83,13 @@
         <!-- Project One -->
         <div class="row">
             <div class="col-md-7">
-                <a href="#">
+			
                     <img class="img-responsive" src="img/integralsymbol.png" alt="">
-                </a>
+
 				<form>
-				<input type="text" name="firstname">
+				<input class="upperbound" type="text" name="upperbound">
 				<br>
-				<input type="text" name="lastname">
+				<input class="lowerbound" type="text" name="lowerbound">
 				</form>
             </div>
             <div class="col-md-5">
