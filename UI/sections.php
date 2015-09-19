@@ -91,25 +91,26 @@
 				<br>
 
 				<input class="lowerbound" type="text" name="lowerbound">
-                 <input type="submit" value="Submit form">
-				</form>
+                <div class="col-md-5">
+                <h3>Integrals 1</h3>
+                <h4>Subheading</h4>
+                <p>More information here.</p>
+                 <input type="submit" class="btn btn-primary" value="Submit form">
+                
+            </div>
+               </form>
                 
 <?php 
-if($_POST["uppercound"] == ""){
-    echo "HELP";
+if(!empty($_POST["upperbound"]) && !empty($_POST["lowerbound"])){
+    echo "Upperbound: ".$_POST["upperbound"]."<br> Lowerbound: ".$_POST["lowerbound"];
 }else{
-    echo $_POST["upperbound"];
+    echo "Must enter both a lower and upperbound";
 }
                 ?><br>
 
                 
             </div>
-            <div class="col-md-5">
-                <h3>Integrals 1</h3>
-                <h4>Subheading</h4>
-                <p>More information here.</p>
-                <a class="btn btn-primary" href="#">Get Solutions<span class="glyphicon glyphicon-chevron-right"></span></a>
-            </div>
+            
         </div>
         <!-- /.row -->
 
