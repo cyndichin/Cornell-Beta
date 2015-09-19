@@ -32,7 +32,7 @@
 		input.variable { top: 120px; left: 550px }
 		input.integrate { width: 100px; }
 		
-		div.col-md-5 { display: inline; position: absolute; top: 10px; left: 650px; }
+		div.col-md-5 { display: inline; position: absolute; top: 10px; left: 600px; }
 
 	</style>
 
@@ -137,7 +137,7 @@ if(!empty($_POST["upperbound"]) && !empty($_POST["lowerbound"])){
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <p>Copyright &copy; WCJN 2015</p>
                 </div>
             </div>
             <!-- /.row -->
