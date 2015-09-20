@@ -17,6 +17,23 @@
     <!-- Custom CSS -->
     <link href="css/1-col-portfolio.css" rel="stylesheet">
 
+	<style>
+		input { font-size: 30px; width: 60px; height: 60px; position: absolute; top: 40px; left: 60px}
+		
+		#bracket2 { position: absolute; top: 0px; left: 380px}
+		#value2 { top: 40px; left: 170px;  }
+		#value3 { top: 130px; left: 170px;  }
+		#value4 { top: 130px; left: 60px;  }
+		
+		#operation { top: 75px; left: 300px}
+		
+		#value5 { top: 40px; left: 430px;  }
+		#value6 { top: 40px; left: 540px;  }
+		#value7 { top: 130px; left: 430px;  }
+		#value8 { top: 130px; left: 540px;  }
+		
+	</style>
+	
 </head>
 
 <body>
@@ -72,14 +89,24 @@
         <!-- Project One -->
         <div class="row">
             <div class="col-md-7">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-                </a>
+                    <img id="bracket1" class="img-responsive" src="img/brackets.png" alt="">
+					<input id="value1" type="text" name="value1">
+					<input id="value2" type="text" name="value2">
+					<input id="value3" type="text" name="value3">
+					<input id="value4" type="text" name="value4">
+					
+					<input id="operation" type="text" name="operation">
+					
+					<img id="bracket2" class="img-responsive" src="img/brackets.png" alt="">
+					<input id="value5" type="text" name="value5">
+					<input id="value6" type="text" name="value6">
+					<input id="value7" type="text" name="value7">
+					<input id="value8" type="text" name="value8">
+					
             </div>
             <div class="col-md-5">
-                <h3>Matrices 1</h3>
-                <h4>Subheading</h4>
-                <p>More information here.</p>
+                <h3>Matrices</h3>
+                <h4>Enter your values</h4>
                 <a class="btn btn-primary" href="#">Get Solutions<span class="glyphicon glyphicon-chevron-right"></span></a>
             </div>
         </div>
