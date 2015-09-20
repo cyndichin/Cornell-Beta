@@ -32,7 +32,7 @@
 		#value7 { top: 130px; left: 430px;  }
 		#value8 { top: 130px; left: 540px;  }
 		
-		#results { position: absolute; top: -250px; left: 200px; border-left: 1px solid black; padding-left: 90px}
+		#results { position: absolute; top: -250px; left: 200px; border-left: 1px solid black; padding-left: 50px}
 	</style>
 	
 </head>
