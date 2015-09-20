@@ -155,7 +155,7 @@ $('#double').click(function(){
         <div class="col-md-7">
           <h3>Integrate</h3>
           <h4>Enter your inputs.</h4>
-          <p>When done, press integrate</p>
+          <p>When done, press integrate.</p>
 
 
 <?php 

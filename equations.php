@@ -44,7 +44,7 @@ legend
 }
 input.add
 {
-    margin-left: 20px;
+    margin-left: 25px;
 }
 input.fieldname
 {
@@ -66,6 +66,9 @@ input.remove
     margin:5px;
 }
 
+#results { display: inline; position: absolute; top: -240px; left: 550px; border-left: 1px solid black; padding-left: 90px}
+
+
 
     </style>
 
@@ -78,12 +81,6 @@ input.remove
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
                 <a class="navbar-brand" href="index.php">
                  <img class="img-responsive" src="img/logos/cornellbetalogo.png" height="200" width="200" alt="">
                 </a>
@@ -99,7 +96,7 @@ input.remove
         <div class="row">
             <div class="col-lg-12">
                 <br><br><br><br>
-                <h1 class="page-header">Equations
+                <h1 class="page-header">Systems of Equations
 <!--                    <small>Secondary Text</small>-->
                 </h1>
             </div>
@@ -111,15 +108,15 @@ input.remove
         <!-- Project One -->
         <div class="row">
             <div class="col-md-7">
-                    <h3> System of Equations </h3>
+                   <h3>"Get Results" to find the values.</h3>
                     
         
                     </div>
                     <fieldset id="buildyourform">
  
 </fieldset>
-<input type="button" value="Preview form" class="add" id="preview" />
-<input type="button" value="Add a field" class="add" id="add" />
+<input type="button" class="btn btn-primary"  value="Add Equation" class="add" id="add" style="width:150px"/>
+<input type="button" class="btn btn-primary"  value="Get Results" class="add" id="preview" style="width:150px" />
 
         
 <script>
@@ -153,7 +150,6 @@ input.remove
         }); 
                $.ajax
                 ({
-
                 type: "POST",
                 url: "query.php",
                 data: {value : value}, 

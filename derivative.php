@@ -42,31 +42,10 @@
     <div class="container">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
         <a class="navbar-brand" href="index.php">
           <img class="img-responsive" src="img/logos/cornellbetalogo.png" height="200" width="200" alt="">
         </a>
       </div>
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li>
-            <a href="about.html">About</a>
-          </li>
-          <li>
-            <a href="services.html">Services</a>
-          </li>
-          <li>
-            <a href="contract.html">Contact</a>
-          </li>
-        </ul>
-      </div>
-      <!-- /.navbar-collapse -->
     </div>
     <!-- /.container -->
   </nav>
@@ -99,7 +78,7 @@
       
       <div class="col-md-5">
         <h3>Derive</h3>
-        <h4>When done, press derive</h4>
+        <h4>When done, press derive.</h4>
 	
 	
 	<?php 
@@ -113,7 +92,7 @@
 	   }
 
 	   else{
-	   echo "Must supply variable name and the function";	
+	   echo "Must supply variable name and the function.";	
 	   }
 	   include 'WolframAlphaEngine.php';
 	   ?>
@@ -238,12 +217,7 @@
 </div>
 </div>
 
-<!-- /.row -->
 
-<hr>
-
-        
-<hr>
 
 </div>
 
