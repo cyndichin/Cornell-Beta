@@ -25,7 +25,9 @@
     font-size: 30px;}
     
     input.value { top: 70px; left: 340px; width: 80px; }
-    input.variable { top: 120px; left: 70px }
+    input.exponent { top: 0px; left: 80px }
+    input.exponent2 { top: 90px; left: 90px; width: 30px; height: 30px; }
+    input.variable { top: 120px; left: 65px }
     input.function { top: 70px; left: 150px; width: 180px; }
 	#results { display: inline; position: absolute; top: -425px; left: 550px; border-left: 1px solid black; padding-left: 90px}
 	
@@ -90,6 +92,7 @@
 	<img class="img-responsive" src="img/derivativesymbol.png" alt="">
   <form action="derivative.php" method="post">
 	<input class="variable" type="text" name="variable">
+	<input class="exponent" type="text" name="exponent">
 	<input class="function" type="text" name="function">
 	<input class="value" type="text" name="value">
 	
@@ -101,11 +104,12 @@
 	
 	<?php 
 	   if(!empty($_POST["variable"]) && !empty($_POST["function"])){
-	   if (! empty($_POST["value"]))
-	   $value = "d/d".$_POST["variable"]. "(".$_POST["function"].") where ".$_POST["variable"]." = ".$_POST["value"];
+	   if (! empty($_POST["exponent"]) && $_POST["exponent"] !== "0")
+	   $value = "d^".$_POST["exponent"]."/d".$_POST["variable"]."^".$_POST["exponent"]."(".$_POST["function"].")";
 	   else
-	   $value = "d/d".$_POST["variable"]. "(".$_POST["function"].")";
-           #echo $value;
+	   $value = "d/d".$_POST["variable"]."(".$_POST["function"].")";
+	   if (! empty($_POST["value"]))
+	   $value = $value."where ".$_POST["variable"]." = ".$_POST["value"];
 	   }
 
 	   else{
