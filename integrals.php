@@ -45,6 +45,8 @@
     .right-col{
       float:right;
     }
+	
+	#results { position: absolute; top: -580px; left: 950px; border-left: 1px solid black; padding-left: 20px}
 
   </style>
   <!-- jQuery -->
@@ -242,7 +244,7 @@ $('#double').click(function(){
   }
 ?>
 
-
+<div id="results">
 <h1>Results</h1>
 <br>
 
@@ -282,8 +284,7 @@ $('#double').click(function(){
   // if there are any pods, display them
   if ( count($response->getPods()) > 0 ) {
 ?>
-    <h2>Pods</h2>
-    <table border=1 width="80%" align="center">
+    <table border=0 width="80%" align="center">
 <?php
     foreach ( $response->getPods() as $pod ) {
 ?>
@@ -312,9 +313,11 @@ $('#double').click(function(){
 ?>
 <br>
 
+</div>
 
 </div>
 <!-- /.row -->
+
 
 <hr>
 
