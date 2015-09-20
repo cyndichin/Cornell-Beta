@@ -34,8 +34,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">
-                    <img class="img-responsive" src="img/cornellbetalogo.png" height="200" width="200" alt="">
+                <a class="navbar-brand" href="index.php">
+                    <img class="img-responsive" src="img/logos/cornellbetalogo.png" height="200" width="200" alt="">
                 </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->

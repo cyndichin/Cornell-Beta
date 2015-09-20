@@ -51,8 +51,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">
-                 <img class="img-responsive" src="img/cornellbetalogo.png" height="200" width="200" alt="">
+                <a class="navbar-brand" href="index.php">
+                 <img class="img-responsive" src="img/logos/cornellbetalogo.png" height="200" width="200" alt="">
                 </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -94,7 +94,7 @@
 			
                 <img class="img-responsive" src="img/integralsymbol.png" alt="">
 
-				<form action="sections.php" method="post" id="integralA">
+				<form action="integrals.php" method="post" id="integralA">
 				<input class="upperbound" type="text" name="upperbound" va;ue="3">
 				<br>
 				<input class="lowerbound" type="text" name="lowerbound">

@@ -18,7 +18,7 @@
     <!-- Custom CSS -->
 <link href="css/style.css" rel="stylesheet">
 
-    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="icon" type="image/png" href="img/logos/logo.png">
 </head>
 
 <body>
@@ -34,8 +34,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">
-                    <img class="img-responsive" src="img/cornellbetalogo.png" height="200" width="200" alt="">
+                <a class="navbar-brand" href="index.php">
+                    <img class="img-responsive" src="img/logos/cornellbetalogo.png" height="200" width="200" alt="">
                 </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -76,44 +76,44 @@
             </div>
 
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="sections.php">
-                    <img class="img-responsive" src="img/integrals.png" alt="">
+                <a class="thumbnail" href="integrals.php">
+                    <img class="img-responsive" src="img/courses/integrals.png" alt="">
                 </a>
             </div>
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="matrixsection.html">
-                    <img class="img-responsive" src="img/matrices.png" alt="">
+                <a class="thumbnail" href="matrix.php">
+                    <img class="img-responsive" src="img/courses/matrices.png" alt="">
                 </a>
             </div>
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="derivativesection.html">
-                    <img class="img-responsive" src="img/derivatives.png" alt="">
+                <a class="thumbnail" href="derivative.php">
+                    <img class="img-responsive" src="img/courses/derivatives.png" alt="">
                 </a>
             </div>
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="equationsection.html">
-                    <img class="img-responsive" src="img/equations.png" alt="">
+                <a class="thumbnail" href="equations.php">
+                    <img class="img-responsive" src="img/courses/equations.png" alt="">
                 </a>
             </div>
 			
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="comingsoon.html">
-                    <img class="img-responsive" src="img/comingsoon.png" alt="">
+                <a class="thumbnail" href="comingsoon.php">
+                    <img class="img-responsive" src="img/courses/comingsoon.png" alt="">
                 </a>
             </div>
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="comingsoon.html">
-                    <img class="img-responsive" src="img/comingsoon.png" alt="">
+                <a class="thumbnail" href="comingsoon.php">
+                    <img class="img-responsive" src="img/courses/comingsoon.png" alt="">
                 </a>
             </div>
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="comingsoon.html">
-                    <img class="img-responsive" src="img/comingsoon.png" alt="">
+                <a class="thumbnail" href="comingsoon.php">
+                    <img class="img-responsive" src="img/courses/comingsoon.png" alt="">
                 </a>
             </div>
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="comingsoon.html"">
-                    <img class="img-responsive" src="img/comingsoon.png" alt="">
+                <a class="thumbnail" href="comingsoon.php">
+                    <img class="img-responsive" src="img/courses/comingsoon.png" alt="">
                 </a>
             </div>
 			<!--

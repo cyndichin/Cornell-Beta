@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,15 +9,27 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Contract</title>
+    <title>Cornell Beta</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-<link href="css/style.css" rel="stylesheet">
+    <link href="css/1-col-portfolio.css" rel="stylesheet">
+	
+	<style>
+		input { position: absolute;
+				display: inline; 
+				width: 40px; 
+				height: 40px;
+				font-size: 30px;}
 
-    <link rel="icon" type="image/png" href="logo.png">
+		input.value1 { top: 70px; left: 150px; width: 300px; }	
+		input.value2 { top: 115px; left: 150px; width: 300px; }
+		input.value3 { top: 160px; left: 150px; width: 300px; }
+
+	</style>
+
 </head>
 
 <body>
@@ -34,48 +45,63 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">
-                    <img class="img-responsive" src="img/cornellbetalogo.png" height="200" width="200" alt="">
+                <a class="navbar-brand" href="index.php">
+                 <img class="img-responsive" src="img/logos/cornellbetalogo.png" height="200" width="200" alt="">
                 </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
-<!--
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#">About</a>
+                        <a href="about.html">About</a>
                     </li>
                     <li>
-                        <a href="#">Services</a>
+                        <a href="services.html">Services</a>
                     </li>
                     <li>
-                        <a href="#">Contact</a>
+                        <a href="contract.html">Contact</a>
                     </li>
                 </ul>
             </div>
--->
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
     </nav>
-    
-     <div class="container">
-
-        <div class="row">
-        
-         </div></div>
 
     <!-- Page Content -->
     <div class="container">
 
+        <!-- Page Heading -->
         <div class="row">
-
             <div class="col-lg-12">
-                <br> <br> <br> <br>
-                <h1 class="page-header">Contract</h1>
+                <br><br><br><br>
+                <h1 class="page-header">Equations
+<!--                    <small>Secondary Text</small>-->
+                </h1>
             </div>
-			
         </div>
+        <!-- /.row -->
+
+        <!-- Project One -->
+        <div class="row">
+            <div class="col-md-7">
+					<h3> System of Equations </h3>
+                    <input class="value1" type="text" name="value1">
+					<input class="value2" type="text" name="value2">
+					<input class="value3" type="text" name="value3">
+					
+               
+            </div>
+            <div class="col-md-5">
+                <h3>Solve the system of equations</h3>
+                <h4>Enter your equations</h4>
+                <p>Then, press solve!</p>
+                <a class="btn btn-primary" href="#">Get Solutions<span class="glyphicon glyphicon-chevron-right"></span></a>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
 
         <hr>
 
@@ -86,6 +112,7 @@
                     <p>Copyright &copy; WCJN 2015</p>
                 </div>
             </div>
+            <!-- /.row -->
         </footer>
 
     </div>

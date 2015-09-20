@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,15 +9,26 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Services</title>
+    <title>Cornell Beta</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-<link href="css/style.css" rel="stylesheet">
+    <link href="css/1-col-portfolio.css" rel="stylesheet">
 
-    <link rel="icon" type="image/png" href="logo.png">
+	<style>
+		input { position: absolute;
+				display: inline; 
+				width: 40px; 
+				height: 40px;
+				font-size: 30px;}
+
+		input.value { top: 70px; left: 150px; width: 180px; }
+		input.variable { top: 120px; left: 70px }		
+
+	</style>
+	
 </head>
 
 <body>
@@ -34,53 +44,64 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">
-                    <img class="img-responsive" src="img/cornellbetalogo.png" height="200" width="200" alt="">
+                <a class="navbar-brand" href="index.php">
+                 <img class="img-responsive" src="img/logos/cornellbetalogo.png" height="200" width="200" alt="">
                 </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
-<!--
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#">About</a>
+                        <a href="about.html">About</a>
                     </li>
                     <li>
-                        <a href="#">Services</a>
+                        <a href="services.html">Services</a>
                     </li>
                     <li>
-                        <a href="#">Contact</a>
+                        <a href="contract.html">Contact</a>
                     </li>
                 </ul>
             </div>
--->
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
     </nav>
-    
-     <div class="container">
-
-        <div class="row">
-        
-         </div></div>
 
     <!-- Page Content -->
     <div class="container">
 
+        <!-- Page Heading -->
         <div class="row">
-
             <div class="col-lg-12">
-                <br> <br> <br> <br>
-                <h1 class="page-header">Services</h1>
-				<h4> Currently we offer whatever is posted in the home page
-					<br><br>
-					There will be more services coming soon!
-				</h4>
+                <br><br><br><br>
+                <h1 class="page-header">Derivatives
+<!--                    <small>Secondary Text</small>-->
+                </h1>
             </div>
-			
         </div>
+        <!-- /.row -->
 
+        <!-- Project One -->
+        <div class="row">
+            <div class="col-md-7">
+
+			<img class="img-responsive" src="img/derivativesymbol.png" alt="">
+			<input class="variable" type="text" name="variable">
+			<input class="value" type="text" name="value">
+
+            </div>
+            <div class="col-md-5">
+                <h3>Derive</h3>
+                <h4>When done, press derive</h4>
+                <p>Enter input values</p>
+                <a class="btn btn-primary" href="#">Get Solutions<span class="glyphicon glyphicon-chevron-right"></span></a>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        
         <hr>
 
         <!-- Footer -->
@@ -90,6 +111,7 @@
                     <p>Copyright &copy; WCJN 2015</p>
                 </div>
             </div>
+            <!-- /.row -->
         </footer>
 
     </div>
