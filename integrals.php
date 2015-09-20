@@ -19,19 +19,27 @@
 	 <style>
 		img { display: inline}
 		img.d { position: absolute; top: 10px; left: 450px;}
+		img.d2 { position: absolute; top: 10px; left: 630px;}
+		img.d3 { position: absolute; top: 10px; left: 770px;}
 		input { position: absolute;
 				display: inline; 
 				width: 40px; 
 				height: 40px;
 				font-size: 30px;}
 				
-		input.upperbound { top: 10px; left: 200px;}
-		input.lowerbound { top: 220px; left: 200px}
+		input.upperbound { top: 10px; left: 180px;}
+		input.lowerbound { top: 220px; left: 180px}
+		input.upperbound2 { top: 10px; left: 380px;}
+		input.lowerbound2 { top: 220px; left: 380px}
 		input.value { top: 120px; left: 250px; width: 200px; }
 		input.variable { top: 120px; left: 550px }
+		input.value2 { top: 120px; left: 430px; width: 200px; }
+		input.variable2 { top: 120px; left: 730px }
+		input.variable3 { top: 120px; left: 870px }
 		input.integrate { width: 100px; }
 		
 		div.col-md-5 { display: inline; position: absolute; top: 10px; left: 600px; }
+		#integral2 { display: inline; position: absolute; top: 5px; left: 220px; }
 
 	</style>
   <!-- jQuery -->
@@ -119,13 +127,18 @@ $('#double').click(function(){
 
         <div class="double">
         <img  src="img/integralsymbol.png" alt="">
-        <img src="img/integralsymbol.png" alt="">
+        <img id="integral2" src="img/integralsymbol.png" alt="">
         <input class="upperbound" type="text" name="upperbound">
         <br>
         <input class="lowerbound" type="text" name="lowerbound">
-        <input class="value" type="text" name="value">
-        <img class="d" class="img-responsive" src="img/d.png" alt="">
-        <input class="variable" type="text" name="variable">
+		<input class="upperbound2" type="text" name="upperbound2">
+        <br>
+        <input class="lowerbound2" type="text" name="lowerbound2">
+        <input class="value2" type="text" name="value2">
+        <img class="d2" class="img-responsive" src="img/d.png" alt="">
+        <input class="variable2" type="text" name="variable2">
+		<img class="d3" class="img-responsive" src="img/d.png" alt="">
+        <input class="variable3" type="text" name="variable3">
 
                 </div>  
                </div>  
