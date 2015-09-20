@@ -86,7 +86,7 @@
       <div class="col-md-7">
 
 	<img class="img-responsive" src="img/derivativesymbol.png" alt="">
-  <form action="ning.php" method="post">
+  <form action="derivative.php" method="post">
 	<input class="variable" type="text" name="variable">
 	<input class="value" type="text" name="value">
 	
