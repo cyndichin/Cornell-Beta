@@ -113,8 +113,8 @@
 <hr>
 
 	<!-- Project Two -->
- <!--       <div class="row">
-          <div class="col-md-5">
+       <div class="row">
+          <div class="col-md-7">
 	    
             <img class="img-responsive" src="img/integralsymbol.png" alt="">
 	      <input class="upperbound" type="text" name="upperbound">
@@ -130,7 +130,7 @@
 
 <hr>
 
-<!-- Footer -->
+<!-- Footer
 <footer>
   <div class="row">
     <div class="col-lg-12">
