@@ -106,185 +106,63 @@
                 <h3>Integrate</h3>
                 <h4>Enter your inputs.</h4>
                 <p>When done, press integrate</p>
-                
-<?php 
-   if (! empty($_POST["variable"]) && ! empty($_POST["value"])){
-   if(!empty($_POST["upperbound"]) && !empty($_POST["lowerbound"])){
-   //echo "Upperbound: ".$_POST["upperbound"]."<br> Lodfsdfwerbound: ".$_POST["lowerbound"];
-   $value = "integrate from ".$_POST["lowerbound"]." to ".$_POST["upperbound"]." (".$_POST["value"].") d".$_POST["variable"];
-   }
-   else if (! empty($_POST["upperbound"])){
-   $value = "integrate from negative infinity to ".$_POST["upperbound"]. " (".$_POST["value"].") d".$_POST["variable"];	
-   }
-   else if (! empty($_POST["lowerbound"])){
-   $value = "integrate from ".$_POST["lowerbound"]. " to positive infinity (".$_POST["value"].") d".$_POST["variable"];
-   }
-   else{
-   $value = "integral of ".$_POST["value"]." d".$_POST["variable"];
-   }
-   }
-   include 'WolframAlphaEngine.php';
-   ?>
-
-<?php
-
-  $queryIsSet = isset($value);
-  if ($queryIsSet) {
-    echo $value;
-  };
-?>
-&nbsp;&nbsp; <br><br>
- <input type="submit" class="btn btn-primary" value="Integrate!" style="width:150px">
-                       
-</form>
-   <div class="col-md-5">
-<br><br>
-<hr>
-<?php  
-  $appID = '28E2T9-P7UTYL2JGT';
-
-  if (!$queryIsSet) die();
-
-  $qArgs = array();
-  if (isset($_REQUEST['assumption']))
-    $qArgs['assumption'] = $_REQUEST['assumption'];
-
-  // instantiate an engine object with your app id
-  $engine = new WolframAlphaEngine( $appID );
-
-  // we will construct a basic query to the api with the input 'pi'
-  // only the bare minimum will be used
-  $response = $engine->getResults( $value, $qArgs);
-
-  // getResults will send back a WAResponse object
-  // this object has a parsed version of the wolfram alpha response
-  // as well as the raw xml ($response->rawXML) 
-  
-  // we can check if there was an error from the response object
-  if ( $response->isError() ) {
-?>
-  <h1>There was an error in the request</h1>
-  </body>
-  </html>
-<?php
-    die();
-  }
-?>
-
-<h1>Results</h1>
-<br>
-
-<?php
-  // if there are any assumptions, display them 
-  if ( count($response->getAssumptions()) > 0 ) {
-?>
-    <h2>Assumptions:</h2>
-    <ul>
-<?php
-      // assumptions come as a hash of type as key and array of assumptions as value
-      foreach ( $response->getAssumptions() as $type => $assumptions ) {
-?>
-        <li><?php echo $type; ?>:<br>
-          <ol>
-<?php
-          foreach ( $assumptions as $assumption ) {
-?>
-            <li><?php echo $assumption->name ." - ". $assumption->description;?>, to change search to this assumption <a href="simpleRequest.php?q=<?php echo urlencode($_REQUEST['q']);?>&assumption=<?php echo $assumption->input;?>">click here</a></li>
-<?php
-          }
-?>
-          </ol>
-        </li>
-<?php
-      }
-?>
-      
-    </ul>
-<?php
-  }
-?>
+	
+</div>
+<!-- /.row -->
 
 <hr>
 
-<?php
-  // if there are any pods, display them
-  if ( count($response->getPods()) > 0 ) {
-?>
-    <h2>Pods</h2>
-    <table border=1 width="80%" align="center">
-<?php
-    foreach ( $response->getPods() as $pod ) {
-?>
-      <tr>
-        <td>
-          <h3><?php echo $pod->attributes['title']; ?></h3>
-<?php
-        // each pod can contain multiple sub pods but must have at least one
-        foreach ( $pod->getSubpods() as $subpod ) {
-          // if format is an image, the subpod will contain a WAImage object
-?>
-          <img src="<?php echo $subpod->image->attributes['src']; ?>">
-          <hr>
-<?php
-        }
-?>
-          
-        </td>
-      </tr>
-<?php
-    }
-?>
-    </table>
-<?php
-  }
-?>
-<br>
-                </div>
-            
-                
-            </div>
-            
-        </div>
-        <!-- /.row -->
-
-        <hr>
+	<!-- Project Two -->
+ <!--       <div class="row">
+          <div class="col-md-5">
+	    
+            <img class="img-responsive" src="img/integralsymbol.png" alt="">
+	      <input class="upperbound" type="text" name="upperbound">
+	      <br>
+	      <input class="lowerbound" type="text" name="lowerbound">
+	      <input class="value" type="text" name="value">
+	      <img class="d" class="img-responsive" src="img/d.png" alt="">
+	      <input class="variable" type="text" name="variable">
+	    
+	  </div>
+	</div>
 
 
-        <hr>
+<hr>
 
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; WCJN 2015</p>
-                </div>
-            </div>
-            <!-- /.row -->
-        </footer>
-
+<!-- Footer -->
+<footer>
+  <div class="row">
+    <div class="col-lg-12">
+      <p>Copyright &copy; WCJN 2015</p>
     </div>
-    <!-- /.container -->
+  </div>
+  <!-- /.row -->
+</footer>
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+</div>
+<!-- /.container -->
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-    
-      <!-- Custom Theme JavaScript -->
-    <script>
-    // Closes the sidebar menu
-//        var x = document.getElementById('upperbound').value;
-//        print(x);
-//   
+<!-- jQuery -->
+<script src="js/jquery.js"></script>
 
-    // Opens the sidebar menu
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#sidebar-wrapper").toggleClass("active");
-    });
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
 
-    </script>
+<!-- Custom Theme JavaScript -->
+<script>
+  // Closes the sidebar menu
+  //        var x = document.getElementById('upperbound').value;
+  //        print(x);
+  //   
+  
+  // Opens the sidebar menu
+  $("#menu-toggle").click(function(e) {
+  e.preventDefault();
+  $("#sidebar-wrapper").toggleClass("active");
+  });
+  
+</script>
 
 
 </body>
