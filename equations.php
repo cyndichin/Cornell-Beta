@@ -16,19 +16,19 @@
 
     <!-- Custom CSS -->
     <link href="css/1-col-portfolio.css" rel="stylesheet">
-	
-	<style>
-		input { position: absolute;
-				display: inline; 
-				width: 400px; 
-				height: 40px;
-				font-size: 20px;
-				margin-left: 10px;}
-		
-		#member { display: inline; width: 245px; }
-		#filldetails { display: inline; margin: 30px 30px 0px 0px;}
+    
+    <style>
+        input { position: absolute;
+                display: inline; 
+                width: 400px; 
+                height: 40px;
+                font-size: 20px;
+                margin-left: 10px;}
+        
+        #member { display: inline; width: 245px; }
+        #filldetails { display: inline; margin: 30px 30px 0px 0px;}
 
-	</style>
+    </style>
 
 </head>
 
@@ -82,8 +82,8 @@
         </div>
         <!-- /.row -->
 
-		
-		<script type='text/javascript'>
+        
+        <script type='text/javascript'>
         function addFields(){
             // Number of inputs to create
             var number = document.getElementById("member").value;
@@ -99,46 +99,43 @@
                 // Create an <input> element, set its type and name attributes
                 var input = document.createElement("input");
                 input.type = "text";
-				input.class = "equations";
+                input.class = "equations";
                 input.name = "equation" + i;
-				input.id = "equation" + i;
-				input.placeholder = "Type your equation " + (i + 1) + " here";
+                input.id = "equation" + i;
+                input.placeholder = "Type your equation " + (i + 1) + " here";
                 container.appendChild(input);
                 // Append a line break 
                 container.appendChild(document.createElement("br"));
-				container.appendChild(document.createElement("br"));
-				container.appendChild(document.createElement("br"));
+                container.appendChild(document.createElement("br"));
+                container.appendChild(document.createElement("br"));
             }
         }
     </script>
-		
+        
         <!-- Project One -->
         <div class="row">
             <div class="col-md-7">
-					<h3> System of Equations </h3>
-					
-					    <input type="number" id="member" name="member" placeholder="Type number of equations"><br />
-						<button id="filldetails" onclick="addFields()">Create</button>
-						<br><br>
-						<div id="container"/>
+                    <h3> System of Equations </h3>
+                    
+                        <input type="number" id="member" name="member" placeholder="Type number of equations"><br />
+                        <button id="filldetails" onclick="addFields()">Create</button>
+                        <br><br>
+                        <div id="container"/>
             
             </div>
-			<form action="equations.php" method="post">
-			<!--
-            <div class="col-md-5">
-                <h3>Solve the system of equations</h3>
-                <h4>Enter your equations</h4>
-                <p>Then, press solve!</p>
-                <a class="btn btn-primary" href="#">Get Solutions<span class="glyphicon glyphicon-chevron-right"></span></a>
-            </div>
-			-->
-        </div>
-        <!-- /.row -->
-		
+                    </div>
+<form action="equations.php" method="post">
+
+
+
+        
 <?php
-for($i = 0; $i < ($_POST["member"]); $i++) {
-	if(!empty($_POST["equation".$i])) {
-		$value += $_POST["equation".$i]." ; ";
+if(!empty($_POST["member"])){
+	for($i = 0; $i < ($_POST["member"]); $i++) {
+		if(!empty($_POST["equation".$i])) {
+			$value += $_POST["equation".$i]." ; ";
+			echo $value; 
+		}
 	}
 }
 include 'WolframAlphaEngine.php';
@@ -153,7 +150,7 @@ include 'WolframAlphaEngine.php';
 ?>
 &nbsp;&nbsp; <br><br>
  <input type="submit" class="btn btn-primary" value="Solve!" style="width:150px">
-                       
+     <br><br>                  
 </form>
    <div class="col-md-5">
 <br><br>
