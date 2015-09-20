@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,17 +17,55 @@
 
     <!-- Custom CSS -->
     <!-- <link href="css/1-col-portfolio.css" rel="stylesheet"> -->
-    
+        <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
     <style>
-        input { position: absolute;
-                display: inline; 
-                width: 400px; 
-                height: 40px;
-                font-size: 20px;
-                margin-left: 10px;}
-        
-        #member { display: inline;}
-        #filldetails { display: inline; margin: 30px 30px 0px 0px;}
+ body
+{
+    font-family:Gill Sans MT;
+    padding:10px;
+}
+fieldset
+{
+   
+    padding:10px;
+    display:block;
+    clear:both;
+    margin:5px 0px;
+}
+legend
+{
+    padding:0px 10px;
+    background:black;
+    color:#FFF;
+}
+input.add
+{
+    margin-left: 20px;
+}
+input.fieldname
+{
+    float:left;
+    clear:left;
+    display:block;
+    margin:5px;
+}
+select.fieldtype
+{
+    float:left;
+    display:block;
+    margin:5px;
+}
+input.remove
+{
+    float:left;
+    display:block;
+    margin:5px;
+}
+
 
     </style>
 
@@ -39,6 +78,12 @@
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
                 <a class="navbar-brand" href="index.php">
                  <img class="img-responsive" src="img/logos/cornellbetalogo.png" height="200" width="200" alt="">
                 </a>
@@ -55,210 +100,80 @@
             <div class="col-lg-12">
                 <br><br><br><br>
                 <h1 class="page-header">Equations
+<!--                    <small>Secondary Text</small>-->
                 </h1>
             </div>
         </div>
-        <!-- /.row -->
 
         
-        <script type='text/javascript'>
-        function addFields(){
-            // Number of inputs to create
-            var number = document.getElementById("member").value;
-            // Container <div> where dynamic content will be placed
-            var container = document.getElementById("container");
-            // Clear previous contents of the container
-            while (container.hasChildNodes()) {
-                container.removeChild(container.lastChild);
-            }
-            for (i=0;i<number;i++){
-                // Append a node with a random text
-                container.appendChild(document.createTextNode("Equation " + (i+1)));
-                // Create an <input> element, set its type and name attributes
-                var input = document.createElement("input");
-                input.type = "text";
-                input.class = "equations";
-                input.name = "equation" + i;
-                input.id = "equation" + i;
-                input.placeholder = "Type your equation " + (i + 1) + " here";
-                container.appendChild(input);
-                // Append a line break 
-                container.appendChild(document.createElement("br"));
-                container.appendChild(document.createElement("br"));
-                container.appendChild(document.createElement("br"));
-            }
-        }
-    </script>
+       
         
         <!-- Project One -->
         <div class="row">
             <div class="col-md-7">
                     <h3> System of Equations </h3>
                     
-                         <input type="number" id="member" name="member" placeholder="Type number of equations" width="5000"><br />
-                         <input type="submit"id="filldetails" onclick="addFields()" value="Create" style="width:150px">
-                    
-                        <br><br>   <br><br>
-                        <div id="container"/>
-            
-            </div>
+        
                     </div>
+                    <fieldset id="buildyourform">
+ 
+</fieldset>
+<input type="button" value="Preview form" class="add" id="preview" />
+<input type="button" value="Add a field" class="add" id="add" />
 
-                    &nbsp;&nbsp; <br><br>
- <input type="submit" id="submit" onclick="submitForm()" value="Solve!" style="width:150px">
-<br><br>
-
-      
-<?php
-if(!empty($_POST["member"])){
-  echo("Hi");
-  for($i = 0; $i < ($_POST["member"]); $i++) {
-    if(!empty($_POST["equation".$i])) {
-      $value += $_POST["equation".$i]." ; ";
-      echo $value; 
-    }
-  }
-}
-include 'WolframAlphaEngine.php';
-?>
+        
 <script>
- function submitForm(){
-  window.alert("ok");
-
-</script> 
-
-<?php
-
-  $queryIsSet = isset($value);
-  if ($queryIsSet) {
-    echo $value;
-  };
-?>
-
-
-<div class="col-md-5">
-<br><br>
-<hr>
-<?php  
-  $appID = '28E2T9-P7UTYL2JGT';
-
-  if (!$queryIsSet) die();
-
-  $qArgs = array();
-  if (isset($_REQUEST['assumption']))
-    $qArgs['assumption'] = $_REQUEST['assumption'];
-
-  // instantiate an engine object with your app id
-  $engine = new WolframAlphaEngine( $appID );
-
-  // we will construct a basic query to the api with the input 'pi'
-  // only the bare minimum will be used
-  $response = $engine->getResults( $value, $qArgs);
-
-  // getResults will send back a WAResponse object
-  // this object has a parsed version of the wolfram alpha response
-  // as well as the raw xml ($response->rawXML) 
-  
-  // we can check if there was an error from the response object
-  if ( $response->isError() ) {
-?>
-  <h1>There was an error in the request</h1>
-  </body>
-  </html>
-<?php
-    die();
-  }
-?>
-
-<h1>Results</h1>
-<br>
-
-<?php
-  // if there are any assumptions, display them 
-  if ( count($response->getAssumptions()) > 0 ) {
-?>
-    <h2>Assumptions:</h2>
-    <ul>
-<?php
-      // assumptions come as a hash of type as key and array of assumptions as value
-      foreach ( $response->getAssumptions() as $type => $assumptions ) {
-?>
-        <li><?php echo $type; ?>:<br>
-          <ol>
-<?php
-          foreach ( $assumptions as $assumption ) {
-?>
-            <li><?php echo $assumption->name ." - ". $assumption->description;?>, to change search to this assumption <a href="simpleRequest.php?q=<?php echo urlencode($_REQUEST['q']);?>&assumption=<?php echo $assumption->input;?>">click here</a></li>
-<?php
-          }
-?>
-          </ol>
-        </li>
-<?php
-      }
-?>
+    $(document).ready(function() {
+    $("#add").click(function() {
+        var intId = $("#buildyourform div").length + 1;
+        var fieldWrapper = $("<div class=\"fieldwrapper\" id=\"field" + intId + "\"/>");
+        var fName = $("<input type=\"text\" class=\"fieldname\" />");
+        var fType = $("<select class=\"fieldtype\"><option value=\"textbox\">Text</option></select>");
+        var removeButton = $("<input type=\"button\" class=\"remove\" value=\"-\" />");
+        removeButton.click(function() {
+            $(this).parent().remove();
+        });
+        fieldWrapper.append(fName);
+        fieldWrapper.append(fType);
+        fieldWrapper.append(removeButton);
+        $("#buildyourform").append(fieldWrapper);
+    });
+    $("#preview").click(function() {
       
-    </ul>
-<?php
-  }
-?>
+       var value = "";
 
-<hr>
+        $("#buildyourform div").each(function() {
+            var id = "input" + $(this).attr("id").replace("field","");
+            var label = $("<label for=\"" + id + "\">" + $(this).find("input.fieldname").first().val() + "</label>");
 
-<?php
-  // if there are any pods, display them
-  if ( count($response->getPods()) > 0 ) {
-?>
-    <h2>Pods</h2>
-    <table border=1 width="80%" align="center">
-<?php
-    foreach ( $response->getPods() as $pod ) {
-?>
-      <tr>
-        <td>
-          <h3><?php echo $pod->attributes['title']; ?></h3>
-<?php
-        // each pod can contain multiple sub pods but must have at least one
-        foreach ( $pod->getSubpods() as $subpod ) {
-          // if format is an image, the subpod will contain a WAImage object
-?>
-          <img src="<?php echo $subpod->image->attributes['src']; ?>">
-          <hr>
-<?php
-        }
-?>
-          
-        </td>
-      </tr>
-<?php
-    }
-?>
-    </table>
-<?php
-  }
-?>
-<script> 
+            var initial = $(this).find("input.fieldname").first().val();
+             value += initial + ";";
+
+
+        }); 
+               $.ajax
+                ({
+
+                type: "POST",
+                url: "query.php",
+                data: {value : value}, 
+                success: function(result){
+              $("#div1").html(result);
+            }});
+
     });
 
-</script>     
-      
+});
 
-    </div>
-        <!-- Footer -->
-        <footer>
-         
-            Copyright &copy; Cyndi Chin, Willie Xu, Jessica Lee, Ning Wang 2015
-      
-        </footer>
+  </script>
+
+  <div id="div1"></div>
+
 
     </div>
     <!-- /.container -->
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
 
 </body>
 
