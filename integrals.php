@@ -20,6 +20,7 @@
 		img { display: inline}
 		img.d { position: absolute; top: 10px; left: 450px;}
 		img.d2 { position: absolute; top: 10px; left: 630px;}
+		img.d3 { position: absolute; top: 10px; left: 770px;}
 		input { position: absolute;
 				display: inline; 
 				width: 40px; 
@@ -34,6 +35,7 @@
 		input.variable { top: 120px; left: 550px }
 		input.value2 { top: 120px; left: 430px; width: 200px; }
 		input.variable2 { top: 120px; left: 730px }
+		input.variable3 { top: 120px; left: 870px }
 		input.integrate { width: 100px; }
 		
 		div.col-md-5 { display: inline; position: absolute; top: 10px; left: 600px; }
@@ -135,6 +137,8 @@ $('#double').click(function(){
         <input class="value2" type="text" name="value2">
         <img class="d2" class="img-responsive" src="img/d.png" alt="">
         <input class="variable2" type="text" name="variable2">
+		<img class="d3" class="img-responsive" src="img/d.png" alt="">
+        <input class="variable3" type="text" name="variable3">
 
                 </div>  
                </div>  
