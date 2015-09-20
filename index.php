@@ -75,7 +75,7 @@ footer{
 
 </div>
         <div id="heading">
-        We should add a summary here, but I have no idea what to call it.
+        Mathematical answers with ease; long computations in seconds.
          <br> <br>
          </div>
 
