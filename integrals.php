@@ -190,7 +190,6 @@ $('#double').click(function(){
    }
 
    else if (! empty($_POST["variable"]) && ! empty($_POST["value"])){
-   echo "Upperbound: ".$_POST["upperbound"]."<br> Lodfsdfwerbound: ".$_POST["lowerbound"];
    if((!empty($_POST["upperbound"]) || $_POST["upperbound"] === "0") && (!empty($_POST["lowerbound"]) || $_POST["lowerbound"] === "0")){
    //echo "Upperbound: ".$_POST["upperbound"]."<br> Lodfsdfwerbound: ".$_POST["lowerbound"];
    $value = "integrate from ".$_POST["lowerbound"]." to ".$_POST["upperbound"]." (".$_POST["value"].") d".$_POST["variable"];
