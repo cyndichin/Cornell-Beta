@@ -66,6 +66,7 @@
          </div></div>
 
     <!-- Page Content -->
+	    <img class="img-responsive" id="mainimg" src="img/bg.jpg" alt="">
     <div class="container">
 
         <div class="row">
