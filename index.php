@@ -1,14 +1,12 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Big Red Hacks, Cornell Beta">
+    <meta name="author" content="Cyndi Chin, Willie Xu, Jessica Lee, Ning Wang">
 
     <title>Cornell Beta</title>
 
@@ -16,63 +14,81 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-<link href="css/style.css" rel="stylesheet">
+    <!-- <link href="css/style.css" rel="stylesheet"> -->
 
     <link rel="icon" type="image/png" href="img/logos/logo.png">
+<style>
+body{
+    background-color: rgb(255, 235, 235);
+}
+#heading{
+    background-color: white;
+    font-style: italic;
+    font-family: Calibri;
+    font-size: 3em;
+    text-align: center;
+    padding-top: 2em;
+}
+
+footer{
+    background-color: white;
+    width: 100%;
+    text-align: center;
+    padding: 1em;
+}
+#mainimg{
+    position: relative;
+}
+.slider{
+    position: absolute;
+
+}
+</style>
+
 </head>
 
 <body>
-
     <!-- Navigation -->
-    <nav class="navbar navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-fixed-top navbar-main" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
                 <a class="navbar-brand" href="index.php">
-                    <img class="img-responsive" src="img/logos/cornellbetalogo.png" height="200" width="200" alt="">
+                    <img class="img-responsive" src="img/logos/cornellbetalogo.png" height="350" width="350" alt="">
                 </a>
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-<!--
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">About</a>
-                    </li>
-                    <li>
-                        <a href="#">Services</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
-                </ul>
-            </div>
--->
-            <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
     </nav>
-    
+
      <div class="container">
 
         <div class="row">
+
         
          </div></div>
+    <div class="left-right">
+<div class="slider">WElcome!</div>
 
-    <!-- Page Content -->
+    <img class="img-responsive" id="mainimg" src="img/bg.jpg" alt="">
+
+
+</div>
+        <div id="heading">
+        We should add a summary here, but I have no idea what to call it.
+         <br> <br>
+         </div>
+
+        
+
+    <!-- Main Page Content -->
+
+
     <div class="container">
-
         <div class="row">
-
             <div class="col-lg-12">
-                <br> <br> <br> <br>
-                <h1 class="page-header">Math Coursework</h1>
+                <br>
+                <h1 class="page-header">Coursework</h1>
             </div>
 
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
@@ -116,43 +132,19 @@
                     <img class="img-responsive" src="img/courses/comingsoon.png" alt="">
                 </a>
             </div>
-			<!--
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
-            </div>
-			
-			-->
+
         </div>
 
         <hr>
-
+    </div>
         <!-- Footer -->
         <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; WCJN 2015</p>
-                </div>
-            </div>
+         
+            Copyright &copy; Cyndi Chin, Willie Xu, Jessica Lee, Ning Wang 2015
+      
         </footer>
 
-    </div>
+
     <!-- /.container -->
 
     <!-- jQuery -->

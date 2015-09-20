@@ -10,15 +10,21 @@ html,
 body {
     width: 100%;
     height: 100%;
+    background-color: black;
 }
 
 body {
-    font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+    background-color: black;
+    font-weight: 1em;
+    margin-left: 30em;
+    font-family: Cabin;
 }
 
-.navbar-header{
+
+.navbar-main{
 background-color: aliceblue;
 }
+
 .text-vertical-center {
     display: table-cell;
     text-align: center;
@@ -151,21 +157,6 @@ hr.small {
     margin: 5px 5px 0 0;
 }
 
-/* Header */
-
-.header {
-    display: table;
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background: url(../img/bg.jpg) no-repeat center center scroll;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-}
-
-/* About */
 
 .about {
     padding: 50px 0;
@@ -239,4 +230,5 @@ hr.small {
 
 footer {
     padding: 100px 0;
+    background-color: red;
 }

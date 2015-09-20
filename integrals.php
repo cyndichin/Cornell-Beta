@@ -16,8 +16,7 @@
 
     <!-- Custom CSS -->
   
-	
-	<style>
+	 <style>
 		img { display: inline}
 		img.d { position: absolute; top: 10px; left: 450px;}
 		input { position: absolute;
@@ -35,6 +34,11 @@
 		div.col-md-5 { display: inline; position: absolute; top: 10px; left: 600px; }
 
 	</style>
+  <!-- jQuery -->
+<script src="js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
 
 </head>
 
@@ -45,31 +49,10 @@
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
                 <a class="navbar-brand" href="index.php">
-                 <img class="img-responsive" src="img/logos/cornellbetalogo.png" height="200" width="200" alt="">
+                 <img class="img-responsive" src="img/logos/cornellbetalogo.png" height="250" width="250" alt="">
                 </a>
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="about.html">About</a>
-                    </li>
-                    <li>
-                        <a href="services.html">Services</a>
-                    </li>
-                    <li>
-                        <a href="contract.html">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
     </nav>
@@ -82,17 +65,48 @@
             <div class="col-lg-12">
                 <br><br><br><br>
                 <h1 class="page-header">Integrals
-<!--                    <small>Secondary Text</small>-->
                 </h1>
             </div>
         </div>
         <!-- /.row -->
 
+           <div class="row">
+            <div class="col-lg-12">
+
+                <a id="single"  href="#"><img src="img/courses/singleintegrals.png" id="lineintegrals" alt=""></a> &nbsp&nbsp
+                 <a id="double" href="#"><img src="img/courses/doubleintegrals.png" id="doubleintegrals" alt=""></a>
+                 <br><br><br><br>
+                </h1>
+            </div>
+        </div>
+<script>
+
+$(document).ready(function(){
+    $('.single').show();
+    $('.double').hide();
+$('#single').click(function(){
+    $('.single').show();
+    $('.double').hide();
+    $('#lineintegrals').css({ opacity: 0.3 });
+    $('#doubleintegrals').css({ opacity: 1});
+    $('#single').css({ background: rgb(255, 255, 255)});
+});
+
+$('#double').click(function(){
+    $('.double').show();
+    $('.single').hide();
+    $('#doubleintegrals').css({ opacity: 0.3 });
+    $('#lineintegrals').css({ opacity: 1});
+});
+});      
+
+</script>
+
         <!-- Project One -->
         <div class="row">
             <div class="col-md-7">
-			
-                <img class="img-responsive" src="img/integralsymbol.png" alt="">
+			  <div class="single">
+        <img class="img-responsive" src="img/integralsymbol.png" alt="">
 
 				<form action="integrals.php" method="post" id="integralA">
 				<input class="upperbound" type="text" name="upperbound" va;ue="3">
@@ -101,28 +115,41 @@
 				<input class="value" type="text" name="value">
 				<img class="d" class="img-responsive" src="img/d.png" alt="">
 				<input class="variable" type="text" name="variable">
+                </div>  
+
+        <div class="double">
+        <img  src="img/integralsymbol.png" alt="">
+        <img src="img/integralsymbol.png" alt="">
+        <input class="upperbound" type="text" name="upperbound">
+        <br>
+        <input class="lowerbound" type="text" name="lowerbound">
+        <input class="value" type="text" name="value">
+        <img class="d" class="img-responsive" src="img/d.png" alt="">
+        <input class="variable" type="text" name="variable">
+
+                </div>  
+               </div>  
+        </div>
+
 				
-                <div class="col-md-7">
-                <h3>Integrate</h3>
-                <h4>Enter your inputs.</h4>
-                <p>When done, press integrate</p>
+        <div class="col-md-7">
+          <h3>Integrate</h3>
+          <h4>Enter your inputs.</h4>
+          <p>When done, press integrate</p>
+
 
 <?php 
    if (! empty($_POST["variable"]) && ! empty($_POST["value"])){
-   if(!empty($_POST["upperbound"]) && !empty($_POST["lowerbound"])){
-   //echo "Upperbound: ".$_POST["upperbound"]."<br> Lodfsdfwerbound: ".$_POST["lowerbound"];
-   $value = "integrate from ".$_POST["lowerbound"]." to ".$_POST["upperbound"]." (".$_POST["value"].") d".$_POST["variable"];
-   }
-   else if (! empty($_POST["upperbound"])){
+    if(!empty($_POST["upperbound"]) && !empty($_POST["lowerbound"])){
+    //echo "Upperbound: ".$_POST["upperbound"]."<br> Lodfsdfwerbound: ".$_POST["lowerbound"];
+    $value = "integrate from ".$_POST["lowerbound"]." to ".$_POST["upperbound"]." (".$_POST["value"].") d".$_POST["variable"];
+    } else if (! empty($_POST["upperbound"])){
    $value = "integrate from negative infinity to ".$_POST["upperbound"]. " (".$_POST["value"].") d".$_POST["variable"];	
-   }
-   else if (! empty($_POST["lowerbound"])){
+   } else if (! empty($_POST["lowerbound"])){
    $value = "integrate from ".$_POST["lowerbound"]. " to positive infinity (".$_POST["value"].") d".$_POST["variable"];
-   }
-   else{
-   $value = "integral of ".$_POST["value"]." d".$_POST["variable"];
-   }
-   }
+   } else{
+    $value = "integral of ".$_POST["value"]." d".$_POST["variable"];
+   }}
    include 'WolframAlphaEngine.php';
    ?>
 
@@ -139,6 +166,8 @@
    <div class="col-md-5">
 <br><br>
 <hr>
+
+
 <?php  
   $appID = '28E2T9-P7UTYL2JGT';
   if (!$queryIsSet) die();
@@ -158,12 +187,12 @@
   if ( $response->isError() ) {
 ?>
   <h1>There was an error in the request</h1>
-  </body>
-  </html>
+
 <?php
     die();
   }
 ?>
+
 
 <h1>Results</h1>
 <br>
@@ -234,56 +263,33 @@
 ?>
 <br>
 
-</div>	
-</div>
+
 </div>
 <!-- /.row -->
 
 <hr>
 
-	<!-- Project Two -->
-       <div class="row">
-          <div class="col-md-7">
-	    
-            <img class="img-responsive" src="img/integralsymbol.png" alt="">
-	      <input class="upperbound" type="text" name="upperbound">
-	      <br>
-	      <input class="lowerbound" type="text" name="lowerbound">
-	      <input class="value" type="text" name="value">
-	      <img class="d" class="img-responsive" src="img/d.png" alt="">
-	      <input class="variable" type="text" name="variable">
-	    
-	  </div>
-	</div>
+
 
 <hr>
 
-<!-- Footer
-<footer>
-  <div class="row">
-    <div class="col-lg-12">
-      <p>Copyright &copy; WCJN 2015</p>
-    </div>
-  </div>
-  <!-- /.row -->
+   <!-- Footer -->
+      <footer>
+       
+          Copyright &copy; Cyndi Chin, Willie Xu, Jessica Lee, Ning Wang 2015
+    
+      </footer>
+
 <!--</footer>--> 
 
 </div>
 <!-- /.container -->
 
-<!-- jQuery -->
-<script src="js/jquery.js"></script>
 
-<!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
 <script>
-  // Closes the sidebar menu
-  //        var x = document.getElementById('upperbound').value;
-  //        print(x);
-  //   
-  
+
   // Opens the sidebar menu
   $("#menu-toggle").click(function(e) {
   e.preventDefault();
@@ -291,6 +297,8 @@
   });
   
 </script>
+
+
 
 
 </body>

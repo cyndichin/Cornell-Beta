@@ -15,7 +15,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <!-- <link href="css/1-col-portfolio.css" rel="stylesheet"> -->
+    <link href="css/1-col-portfolio.css" rel="stylesheet">
 
 </head>
 
@@ -33,7 +33,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="index.php">
-                 <img class="img-responsive" src="img/logos/cornellbetalogo.png" height="200" width="200" alt="">
+                 <img class="img-responsive" src="img/cornellbetalogo.png" height="200" width="200" alt="">
                 </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->

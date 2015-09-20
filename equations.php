@@ -15,7 +15,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <!-- <link href="css/1-col-portfolio.css" rel="stylesheet"> -->
+    <link href="css/1-col-portfolio.css" rel="stylesheet">
     
     <style>
         input { position: absolute;
@@ -117,7 +117,7 @@
             <div class="col-md-7">
                     <h3> System of Equations </h3>
                     
-                        <input type="number" id="member" name="member" placeholder="Type number of equations"><br>
+                        <input type="number" id="member" name="member" placeholder="Type number of equations"><br />
                         <button id="filldetails" onclick="addFields()">Create</button>
                         <br><br>
                         <div id="container"/>
@@ -130,16 +130,10 @@
 
         
 <?php
-//echo "hi";
-//echo ($_POST["member"]);
-if(!empty($_POST["member"])){
-   echo "hi2";
-	for($i = 0; $i < ($_POST["member"]); $i++) {
-		if(!empty($_POST["equation".$i])) {
-			$value += $_POST["equation".$i]." ; ";
-			echo $value; 
-		}
-	}
+for($i = 0; $i < ($_POST["member"]); $i++) {
+    if(!empty($_POST["equation".$i])) {
+        $value += $_POST["equation".$i]." ; ";
+    }
 }
 include 'WolframAlphaEngine.php';
 ?>
