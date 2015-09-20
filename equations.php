@@ -20,13 +20,13 @@
 	<style>
 		input { position: absolute;
 				display: inline; 
-				width: 40px; 
+				width: 400px; 
 				height: 40px;
-				font-size: 30px;}
-
-		input.value1 { top: 70px; left: 150px; width: 300px; }	
-		input.value2 { top: 115px; left: 150px; width: 300px; }
-		input.value3 { top: 160px; left: 150px; width: 300px; }
+				font-size: 20px;
+				margin-left: 10px;}
+		
+		#member { display: inline; width: 245px; }
+		#filldetails { display: inline; margin: 30px 30px 0px 0px;}
 
 	</style>
 
@@ -82,24 +82,180 @@
         </div>
         <!-- /.row -->
 
+		
+		<script type='text/javascript'>
+        function addFields(){
+            // Number of inputs to create
+            var number = document.getElementById("member").value;
+            // Container <div> where dynamic content will be placed
+            var container = document.getElementById("container");
+            // Clear previous contents of the container
+            while (container.hasChildNodes()) {
+                container.removeChild(container.lastChild);
+            }
+            for (i=0;i<number;i++){
+                // Append a node with a random text
+                container.appendChild(document.createTextNode("Equation " + (i+1)));
+                // Create an <input> element, set its type and name attributes
+                var input = document.createElement("input");
+                input.type = "text";
+				input.class = "equations";
+                input.name = "equation" + i;
+				input.id = "equation" + i;
+				input.placeholder = "Type your equation " + (i + 1) + " here";
+                container.appendChild(input);
+                // Append a line break 
+                container.appendChild(document.createElement("br"));
+				container.appendChild(document.createElement("br"));
+				container.appendChild(document.createElement("br"));
+            }
+        }
+    </script>
+		
         <!-- Project One -->
         <div class="row">
             <div class="col-md-7">
 					<h3> System of Equations </h3>
-                    <input class="value1" type="text" name="value1">
-					<input class="value2" type="text" name="value2">
-					<input class="value3" type="text" name="value3">
 					
-               
+					    <input type="number" id="member" name="member" placeholder="Type number of equations"><br />
+						<button id="filldetails" onclick="addFields()">Create</button>
+						<br><br>
+						<div id="container"/>
+            
             </div>
+			<form action="equations.php" method="post">
+			<!--
             <div class="col-md-5">
                 <h3>Solve the system of equations</h3>
                 <h4>Enter your equations</h4>
                 <p>Then, press solve!</p>
                 <a class="btn btn-primary" href="#">Get Solutions<span class="glyphicon glyphicon-chevron-right"></span></a>
             </div>
+			-->
         </div>
         <!-- /.row -->
+		
+<?php
+for($i = 0; $i < ($_POST["member"]); $i++) {
+	if(!empty($_POST["equation".$i])) {
+		$value += $_POST["equation".$i]." ; ";
+	}
+}
+include 'WolframAlphaEngine.php';
+?>
+
+<?php
+
+  $queryIsSet = isset($value);
+  if ($queryIsSet) {
+    echo $value;
+  };
+?>
+&nbsp;&nbsp; <br><br>
+ <input type="submit" class="btn btn-primary" value="Solve!" style="width:150px">
+                       
+</form>
+   <div class="col-md-5">
+<br><br>
+<hr>
+<?php  
+  $appID = '28E2T9-P7UTYL2JGT';
+
+  if (!$queryIsSet) die();
+
+  $qArgs = array();
+  if (isset($_REQUEST['assumption']))
+    $qArgs['assumption'] = $_REQUEST['assumption'];
+
+  // instantiate an engine object with your app id
+  $engine = new WolframAlphaEngine( $appID );
+
+  // we will construct a basic query to the api with the input 'pi'
+  // only the bare minimum will be used
+  $response = $engine->getResults( $value, $qArgs);
+
+  // getResults will send back a WAResponse object
+  // this object has a parsed version of the wolfram alpha response
+  // as well as the raw xml ($response->rawXML) 
+  
+  // we can check if there was an error from the response object
+  if ( $response->isError() ) {
+?>
+  <h1>There was an error in the request</h1>
+  </body>
+  </html>
+<?php
+    die();
+  }
+?>
+
+<h1>Results</h1>
+<br>
+
+<?php
+  // if there are any assumptions, display them 
+  if ( count($response->getAssumptions()) > 0 ) {
+?>
+    <h2>Assumptions:</h2>
+    <ul>
+<?php
+      // assumptions come as a hash of type as key and array of assumptions as value
+      foreach ( $response->getAssumptions() as $type => $assumptions ) {
+?>
+        <li><?php echo $type; ?>:<br>
+          <ol>
+<?php
+          foreach ( $assumptions as $assumption ) {
+?>
+            <li><?php echo $assumption->name ." - ". $assumption->description;?>, to change search to this assumption <a href="simpleRequest.php?q=<?php echo urlencode($_REQUEST['q']);?>&assumption=<?php echo $assumption->input;?>">click here</a></li>
+<?php
+          }
+?>
+          </ol>
+        </li>
+<?php
+      }
+?>
+      
+    </ul>
+<?php
+  }
+?>
+
+<hr>
+
+<?php
+  // if there are any pods, display them
+  if ( count($response->getPods()) > 0 ) {
+?>
+    <h2>Pods</h2>
+    <table border=1 width="80%" align="center">
+<?php
+    foreach ( $response->getPods() as $pod ) {
+?>
+      <tr>
+        <td>
+          <h3><?php echo $pod->attributes['title']; ?></h3>
+<?php
+        // each pod can contain multiple sub pods but must have at least one
+        foreach ( $pod->getSubpods() as $subpod ) {
+          // if format is an image, the subpod will contain a WAImage object
+?>
+          <img src="<?php echo $subpod->image->attributes['src']; ?>">
+          <hr>
+<?php
+        }
+?>
+          
+        </td>
+      </tr>
+<?php
+    }
+?>
+    </table>
+<?php
+  }
+?>
 
         <hr>
 
