@@ -29,8 +29,10 @@
         
     input.upperbound { top: 10px; left: 180px;}
     input.lowerbound { top: 220px; left: 180px}
-    input.upperbound2 { top: 10px; left: 380px;}
-    input.lowerbound2 { top: 220px; left: 380px}
+    input.upperbound2 { top: 10px; left: 180px;}
+    input.lowerbound2 { top: 220px; left: 180px}
+    input.upperbound3 {top: 10px; left: 380px;}
+    input.lowerbound3 {top: 220px; left: 380px;}
     input.value { top: 120px; left: 250px; width: 200px; }
     input.variable { top: 120px; left: 550px }
     input.value2 { top: 120px; left: 430px; width: 200px; }
@@ -75,8 +77,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <br><br><br><br>
-                <h1 class="page-header">Integrals
-                </h1>
+                <h1 class="page-header">Integrals</h1>
             </div>
         </div>
         <!-- /.row -->
@@ -101,6 +102,7 @@ $('#single').click(function(){
     $('#lineintegrals').css({ opacity: 0.3 });
     $('#doubleintegrals').css({ opacity: 1});
     $('#single').css({ background: rgb(255, 255, 255)});
+
 });
 
 $('#double').click(function(){
@@ -120,7 +122,7 @@ $('#double').click(function(){
         <img class="img-responsive" src="img/integralsymbol.png" alt="">
 
         <form action="integrals.php" method="post" id="integralA">
-        <input class="upperbound" type="text" name="upperbound" va;ue="3">
+        <input class="upperbound" type="text" name="upperbound">
         <br>
         <input class="lowerbound" type="text" name="lowerbound">
         <input class="value" type="text" name="value">
@@ -131,12 +133,12 @@ $('#double').click(function(){
         <div class="double">
         <img  src="img/integralsymbol.png" alt="">
         <img id="integral2" src="img/integralsymbol.png" alt="">
-        <input class="upperbound" type="text" name="upperbound">
-        <br>
-        <input class="lowerbound" type="text" name="lowerbound">
-    <input class="upperbound2" type="text" name="upperbound2">
+        <input class="upperbound2" type="text" name="upperbound2">
         <br>
         <input class="lowerbound2" type="text" name="lowerbound2">
+    <input class="upperbound3" type="text" name="upperbound3">
+        <br>
+        <input class="lowerbound3" type="text" name="lowerbound3">
         <input class="value2" type="text" name="value2">
         <img class="d2" class="img-responsive" src="img/d.png" alt="">
         <input class="variable2" type="text" name="variable2">
@@ -155,16 +157,47 @@ $('#double').click(function(){
 
 
 <?php 
-   if (! empty($_POST["variable"]) && ! empty($_POST["value"])){
-    if(!empty($_POST["upperbound"]) && !empty($_POST["lowerbound"])){
-    //echo "Upperbound: ".$_POST["upperbound"]."<br> Lodfsdfwerbound: ".$_POST["lowerbound"];
-    $value = "integrate from ".$_POST["lowerbound"]." to ".$_POST["upperbound"]." (".$_POST["value"].") d".$_POST["variable"];
-    } else if (! empty($_POST["upperbound"])){
+   if (! empty($_POST["variable2"]) && ! empty($_POST["variable3"])){
+   // double integral mode
+      if (empty($_POST["upperbound2"]) && $_POST["upperbound2"] !== "0" &&
+          empty($_POST["upperbound3"]) && $_POST["upperbound3"] !== "0" &&
+          empty($_POST["lowerbound2"]) && $_POST["lowerbound2"] !== "0" &&
+          empty($_POST["lowerbound3"]) && $_POST["lowerbound3"] !== "0")
+          $value = "integral integral ".$_POST["value2"]." d".$_POST["variable2"]." d".$_POST["variable3"];
+   else if ((empty($_POST["upperbound2"]) && $_POST["upperbound2"] !== "0") && 
+            (! empty($_POST["upperbound3"]) || $_POST["upperbound3"] === "0") &&
+            (empty($_POST["lowerbound2"]) && $_POST["lowerbound2"] !== "0") &&
+            (!empty($_POST["lowerbound3"]) || $_POST["lowerbound3"] === "0"))
+          $value = "integral integral_".$_POST["lowerbound3"]."^".$_POST["upperbound3"].$_POST["value2"]." d".$_POST["variable2"]." d".$_POST["variable3"];
+   else if ((!empty($_POST["upperbound2"]) || $_POST["upperbound2"] === "0") && 
+            (empty($_POST["upperbound3"]) && $_POST["upperbound3"] !== "0") &&
+            (!empty($_POST["lowerbound2"]) || $_POST["lowerbound2"] === "0") &&
+            (empty($_POST["lowerbound3"]) && $_POST["lowerbound3"] !== "0"))
+          $value = "integral_".$_POST["lowerbound2"]."^".$_POST["upperbound2"]." integral ".$_POST["value2"]." d".$_POST["variable2"]." d".$_POST["variable3"];
+   else{
+   if (empty($_POST["upperbound2"]) && $_POST["upperbound2"] !== "0")
+      $_POST["upperbound2"] = "(positive infinity)";
+   if (empty($_POST["upperbound3"]) && $_POST["upperbound3"] !== "0")
+      $_POST["upperbound3"] = "(positive infinity)";
+   if (empty($_POST["lowerbound2"]) && $_POST["lowerbound2"] !== "0")
+      $_POST["lowerbound2"] = "(negative infinity)";
+   if (empty($_POST["lowerbound3"]) && $_POST["lowerbound3"] !== "0")
+      $_POST["lowerbound3"] = "(negative infinity)";
+   $value = "integral_".$_POST["lowerbound2"]."^".$_POST["upperbound2"]." integral_".$_POST["lowerbound3"]."^".$_POST["upperbound3"]." ".$_POST["value2"]." d".$_POST["variable2"]." d".$_POST["variable3"];
+   }
+   }
+
+   else if (! empty($_POST["variable"]) && ! empty($_POST["value"])){
+   echo "Upperbound: ".$_POST["upperbound"]."<br> Lodfsdfwerbound: ".$_POST["lowerbound"];
+   if((!empty($_POST["upperbound"]) || $_POST["upperbound"] === "0") && (!empty($_POST["lowerbound"]) || $_POST["lowerbound"] === "0")){
+   //echo "Upperbound: ".$_POST["upperbound"]."<br> Lodfsdfwerbound: ".$_POST["lowerbound"];
+   $value = "integrate from ".$_POST["lowerbound"]." to ".$_POST["upperbound"]." (".$_POST["value"].") d".$_POST["variable"];
+   } else if (! empty($_POST["upperbound"])){
    $value = "integrate from negative infinity to ".$_POST["upperbound"]. " (".$_POST["value"].") d".$_POST["variable"]; 
    } else if (! empty($_POST["lowerbound"])){
    $value = "integrate from ".$_POST["lowerbound"]. " to positive infinity (".$_POST["value"].") d".$_POST["variable"];
    } else{
-    $value = "integral of ".$_POST["value"]." d".$_POST["variable"];
+   $value = "integral of ".$_POST["value"]." d".$_POST["variable"];
    }}
    include 'WolframAlphaEngine.php';
    ?>
