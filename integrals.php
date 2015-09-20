@@ -16,32 +16,33 @@
 
     <!-- Custom CSS -->
   
-	 <style>
-		img { display: inline}
-		img.d { position: absolute; top: 10px; left: 450px;}
-		img.d2 { position: absolute; top: 10px; left: 630px;}
-		img.d3 { position: absolute; top: 10px; left: 770px;}
-		input { position: absolute;
-				display: inline; 
-				width: 40px; 
-				height: 40px;
-				font-size: 30px;}
-				
-		input.upperbound { top: 10px; left: 180px;}
-		input.lowerbound { top: 220px; left: 180px}
-		input.upperbound2 { top: 10px; left: 380px;}
-		input.lowerbound2 { top: 220px; left: 380px}
-		input.value { top: 120px; left: 250px; width: 200px; }
-		input.variable { top: 120px; left: 550px }
-		input.value2 { top: 120px; left: 430px; width: 200px; }
-		input.variable2 { top: 120px; left: 730px }
-		input.variable3 { top: 120px; left: 870px }
-		input.integrate { width: 100px; }
-		
-		div.col-md-5 { display: inline; position: absolute; top: 10px; left: 600px; }
-		#integral2 { display: inline; position: absolute; top: 5px; left: 220px; }
+   <style>
+    img { display: inline}
+    img.d { position: absolute; top: 10px; left: 450px;}
+    img.d2 { position: absolute; top: 10px; left: 630px;}
+    input { position: absolute;
+        display: inline; 
+        width: 40px; 
+        height: 40px;
+        font-size: 30px;}
+        
+    input.upperbound { top: 10px; left: 180px;}
+    input.lowerbound { top: 220px; left: 180px}
+    input.upperbound2 { top: 10px; left: 380px;}
+    input.lowerbound2 { top: 220px; left: 380px}
+    input.value { top: 120px; left: 250px; width: 200px; }
+    input.variable { top: 120px; left: 550px }
+    input.value2 { top: 120px; left: 430px; width: 200px; }
+    input.variable2 { top: 120px; left: 730px }
+    input.integrate { width: 100px; }
+    
+    div.col-md-5 { display: inline; position: absolute; top: 10px; left: 600px; }
+    #integral2 { display: inline; position: absolute; top: 5px; left: 220px; }
+    .right-col{
+      float:right;
+    }
 
-	</style>
+  </style>
   <!-- jQuery -->
 <script src="js/jquery.js"></script>
 
@@ -113,16 +114,16 @@ $('#double').click(function(){
         <!-- Project One -->
         <div class="row">
             <div class="col-md-7">
-			  <div class="single">
+        <div class="single">
         <img class="img-responsive" src="img/integralsymbol.png" alt="">
 
-				<form action="integrals.php" method="post" id="integralA">
-				<input class="upperbound" type="text" name="upperbound" va;ue="3">
-				<br>
-				<input class="lowerbound" type="text" name="lowerbound">
-				<input class="value" type="text" name="value">
-				<img class="d" class="img-responsive" src="img/d.png" alt="">
-				<input class="variable" type="text" name="variable">
+        <form action="integrals.php" method="post" id="integralA">
+        <input class="upperbound" type="text" name="upperbound" va;ue="3">
+        <br>
+        <input class="lowerbound" type="text" name="lowerbound">
+        <input class="value" type="text" name="value">
+        <img class="d" class="img-responsive" src="img/d.png" alt="">
+        <input class="variable" type="text" name="variable">
                 </div>  
 
         <div class="double">
@@ -131,20 +132,18 @@ $('#double').click(function(){
         <input class="upperbound" type="text" name="upperbound">
         <br>
         <input class="lowerbound" type="text" name="lowerbound">
-		<input class="upperbound2" type="text" name="upperbound2">
+    <input class="upperbound2" type="text" name="upperbound2">
         <br>
         <input class="lowerbound2" type="text" name="lowerbound2">
         <input class="value2" type="text" name="value2">
         <img class="d2" class="img-responsive" src="img/d.png" alt="">
         <input class="variable2" type="text" name="variable2">
-		<img class="d3" class="img-responsive" src="img/d.png" alt="">
-        <input class="variable3" type="text" name="variable3">
 
                 </div>  
                </div>  
         </div>
 
-				
+        
         <div class="col-md-7">
           <h3>Integrate</h3>
           <h4>Enter your inputs.</h4>
@@ -157,7 +156,7 @@ $('#double').click(function(){
     //echo "Upperbound: ".$_POST["upperbound"]."<br> Lodfsdfwerbound: ".$_POST["lowerbound"];
     $value = "integrate from ".$_POST["lowerbound"]." to ".$_POST["upperbound"]." (".$_POST["value"].") d".$_POST["variable"];
     } else if (! empty($_POST["upperbound"])){
-   $value = "integrate from negative infinity to ".$_POST["upperbound"]. " (".$_POST["value"].") d".$_POST["variable"];	
+   $value = "integrate from negative infinity to ".$_POST["upperbound"]. " (".$_POST["value"].") d".$_POST["variable"]; 
    } else if (! empty($_POST["lowerbound"])){
    $value = "integrate from ".$_POST["lowerbound"]. " to positive infinity (".$_POST["value"].") d".$_POST["variable"];
    } else{
@@ -176,7 +175,7 @@ $('#double').click(function(){
  <input type="submit" class="btn btn-primary" value="Integrate!" style="width:150px">
                        
 </form>
-   <div class="col-md-5">
+   <div class="right-col">
 <br><br>
 <hr>
 

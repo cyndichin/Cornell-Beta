@@ -25,7 +25,7 @@
                 font-size: 20px;
                 margin-left: 10px;}
         
-        #member { display: inline; width: 245px; }
+        #member { display: inline;}
         #filldetails { display: inline; margin: 30px 30px 0px 0px;}
 
     </style>
@@ -39,31 +39,10 @@
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
                 <a class="navbar-brand" href="index.php">
                  <img class="img-responsive" src="img/logos/cornellbetalogo.png" height="200" width="200" alt="">
                 </a>
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="about.html">About</a>
-                    </li>
-                    <li>
-                        <a href="services.html">Services</a>
-                    </li>
-                    <li>
-                        <a href="contract.html">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
     </nav>
@@ -76,7 +55,6 @@
             <div class="col-lg-12">
                 <br><br><br><br>
                 <h1 class="page-header">Equations
-<!--                    <small>Secondary Text</small>-->
                 </h1>
             </div>
         </div>
@@ -117,29 +95,37 @@
             <div class="col-md-7">
                     <h3> System of Equations </h3>
                     
-                        <input type="number" id="member" name="member" placeholder="Type number of equations"><br />
-                        <button id="filldetails" onclick="addFields()">Create</button>
-                        <br><br>
+                         <input type="number" id="member" name="member" placeholder="Type number of equations" width="5000"><br />
+                         <input type="submit"id="filldetails" onclick="addFields()" value="Create" style="width:150px">
+                    
+                        <br><br>   <br><br>
                         <div id="container"/>
             
             </div>
                     </div>
-<form action="equations.php" method="post">
 
+                    &nbsp;&nbsp; <br><br>
+ <input type="submit" id="submit" onclick="submitForm()" value="Solve!" style="width:150px">
+<br><br>
 
-
-        
+      
 <?php
 if(!empty($_POST["member"])){
-	for($i = 0; $i < ($_POST["member"]); $i++) {
-		if(!empty($_POST["equation".$i])) {
-			$value += $_POST["equation".$i]." ; ";
-			echo $value; 
-		}
-	}
+  echo("Hi");
+  for($i = 0; $i < ($_POST["member"]); $i++) {
+    if(!empty($_POST["equation".$i])) {
+      $value += $_POST["equation".$i]." ; ";
+      echo $value; 
+    }
+  }
 }
 include 'WolframAlphaEngine.php';
 ?>
+<script>
+ function submitForm(){
+  window.alert("ok");
+
+</script> 
 
 <?php
 
@@ -148,11 +134,9 @@ include 'WolframAlphaEngine.php';
     echo $value;
   };
 ?>
-&nbsp;&nbsp; <br><br>
- <input type="submit" class="btn btn-primary" value="Solve!" style="width:150px">
-     <br><br>                  
-</form>
-   <div class="col-md-5">
+
+
+<div class="col-md-5">
 <br><br>
 <hr>
 <?php  
@@ -253,19 +237,18 @@ include 'WolframAlphaEngine.php';
 <?php
   }
 ?>
+<script> 
+    });
 
-        <hr>
+</script>     
+      
 
-        <hr>
-
+    </div>
         <!-- Footer -->
         <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; WCJN 2015</p>
-                </div>
-            </div>
-            <!-- /.row -->
+         
+            Copyright &copy; Cyndi Chin, Willie Xu, Jessica Lee, Ning Wang 2015
+      
         </footer>
 
     </div>
