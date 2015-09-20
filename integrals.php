@@ -45,6 +45,8 @@
     .right-col{
       float:right;
     }
+	
+	#results { position: absolute; top: -580px; left: 950px; border-left: 1px solid black; padding-left: 20px}
 
   </style>
   <!-- jQuery -->
@@ -188,7 +190,6 @@ $('#double').click(function(){
    }
 
    else if (! empty($_POST["variable"]) && ! empty($_POST["value"])){
-   echo "Upperbound: ".$_POST["upperbound"]."<br> Lodfsdfwerbound: ".$_POST["lowerbound"];
    if((!empty($_POST["upperbound"]) || $_POST["upperbound"] === "0") && (!empty($_POST["lowerbound"]) || $_POST["lowerbound"] === "0")){
    //echo "Upperbound: ".$_POST["upperbound"]."<br> Lodfsdfwerbound: ".$_POST["lowerbound"];
    $value = "integrate from ".$_POST["lowerbound"]." to ".$_POST["upperbound"]." (".$_POST["value"].") d".$_POST["variable"];
@@ -242,7 +243,7 @@ $('#double').click(function(){
   }
 ?>
 
-
+<div id="results">
 <h1>Results</h1>
 <br>
 
@@ -282,8 +283,7 @@ $('#double').click(function(){
   // if there are any pods, display them
   if ( count($response->getPods()) > 0 ) {
 ?>
-    <h2>Pods</h2>
-    <table border=1 width="80%" align="center">
+    <table border=0 width="80%" align="center">
 <?php
     foreach ( $response->getPods() as $pod ) {
 ?>
@@ -312,9 +312,11 @@ $('#double').click(function(){
 ?>
 <br>
 
+</div>
 
 </div>
 <!-- /.row -->
+
 
 <hr>
 
