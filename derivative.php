@@ -246,9 +246,9 @@
 <!-- Footer -->
 <footer>
   <div class="row">
-<!--     <div class="col-lg-12">
-      <p>Copyright &copy; WCJN 2015</p>
-    </div> -->
+    <div class="col-lg-12">
+      <p>Copyright &copy; Cyndi Chin, Willie Xu, Jessica Lee, Ning Wang 2015</p>
+    </div>
   </div>
   <!-- /.row -->
 </footer>
