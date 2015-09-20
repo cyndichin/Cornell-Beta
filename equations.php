@@ -15,7 +15,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/1-col-portfolio.css" rel="stylesheet">
+    <!-- <link href="css/1-col-portfolio.css" rel="stylesheet"> -->
     
     <style>
         input { position: absolute;
@@ -130,10 +130,13 @@
 
         
 <?php
-for($i = 0; $i < ($_POST["member"]); $i++) {
-    if(!empty($_POST["equation".$i])) {
-        $value += $_POST["equation".$i]." ; ";
-    }
+if(!empty($_POST["member"])){
+	for($i = 0; $i < ($_POST["member"]); $i++) {
+		if(!empty($_POST["equation".$i])) {
+			$value += $_POST["equation".$i]." ; ";
+			echo $value; 
+		}
+	}
 }
 include 'WolframAlphaEngine.php';
 ?>
