@@ -24,8 +24,9 @@
     height: 40px;
     font-size: 30px;}
     
-    input.value { top: 70px; left: 150px; width: 180px; }
-    input.variable { top: 120px; left: 70px }		
+    input.value { top: 70px; left: 340px; width: 80px; }
+    input.variable { top: 120px; left: 70px }
+    input.function { top: 70px; left: 150px; width: 180px; }
 
   </style>
 	
@@ -88,6 +89,7 @@
 	<img class="img-responsive" src="img/derivativesymbol.png" alt="">
   <form action="derivative.php" method="post">
 	<input class="variable" type="text" name="variable">
+	<input class="function" type="text" name="function">
 	<input class="value" type="text" name="value">
 	
       
@@ -97,10 +99,12 @@
 	
 	
 	<?php 
-	   if(!empty($_POST["variable"]) && !empty($_POST["value"])){
-	   echo "d/d".$_POST["variable"]. "(".$_POST["value"].")";
-	   $value = "d/d".$_POST["variable"]. "(".$_POST["value"].")";
-          echo $value;
+	   if(!empty($_POST["variable"]) && !empty($_POST["function"])){
+	   if (! empty($_POST["value"]))
+	   $value = "d/d".$_POST["variable"]. "(".$_POST["function"].") where ".$_POST["variable"]." = ".$_POST["value"];
+	   else
+	   $value = "d/d".$_POST["variable"]. "(".$_POST["function"].")";
+           #echo $value;
 	   }
 
 	   else{
