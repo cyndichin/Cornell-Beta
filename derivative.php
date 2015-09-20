@@ -27,7 +27,8 @@
     input.value { top: 70px; left: 340px; width: 80px; }
     input.variable { top: 120px; left: 70px }
     input.function { top: 70px; left: 150px; width: 180px; }
-
+	#results { display: inline; position: absolute; top: -425px; left: 550px; border-left: 1px solid black; padding-left: 90px}
+	
   </style>
 	
 </head>
@@ -161,6 +162,7 @@
    }
    ?>
 
+<div id="results">
 <h1>Results</h1>
 <br>
 
@@ -200,8 +202,7 @@
    // if there are any pods, display them
    if ( count($response->getPods()) > 0 ) {
 ?>
-<h2>Pods</h2>
-<table border=1 width="80%" align="center">
+<table border=0 width="80%" align="center">
   <?php
      foreach ( $response->getPods() as $pod ) {
   ?>
@@ -239,6 +240,8 @@
 
         
 <hr>
+
+</div>
 
 <!-- Footer -->
 <footer>
