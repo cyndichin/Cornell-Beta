@@ -15,7 +15,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/1-col-portfolio.css" rel="stylesheet">
+    <!-- <link href="css/1-col-portfolio.css" rel="stylesheet"> -->
 
 </head>
 
