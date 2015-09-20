@@ -20,6 +20,10 @@ body {
     font-family: Cabin;
 }
 
+#mainimg{
+    height:100%;
+    width:100%;
+}
 
 .navbar-main{
 background-color: aliceblue;
