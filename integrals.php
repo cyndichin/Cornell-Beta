@@ -108,14 +108,23 @@
                 <p>When done, press integrate</p>
                 
 <?php 
-if(!empty($_POST["upperbound"]) && !empty($_POST["lowerbound"])){
-    echo "Upperbound: ".$_POST["upperbound"]."<br> Lodfsdfwerbound: ".$_POST["lowerbound"];
-    $value = "integrate from ".$_POST["lowerbound"]." to ".$_POST["upperbound"]." (".$_POST["value"].") d".$_POST["variable"];
-}else{
-    echo "Must enter both a lower and upperbound";	
-}
-  include 'WolframAlphaEngine.php';
-?>
+   if (! empty($_POST["variable"]) && ! empty($_POST["value"])){
+   if(!empty($_POST["upperbound"]) && !empty($_POST["lowerbound"])){
+   //echo "Upperbound: ".$_POST["upperbound"]."<br> Lodfsdfwerbound: ".$_POST["lowerbound"];
+   $value = "integrate from ".$_POST["lowerbound"]." to ".$_POST["upperbound"]." (".$_POST["value"].") d".$_POST["variable"];
+   }
+   else if (! empty($_POST["upperbound"])){
+   $value = "integrate from negative infinity to ".$_POST["upperbound"]. " (".$_POST["value"].") d".$_POST["variable"];	
+   }
+   else if (! empty($_POST["lowerbound"])){
+   $value = "integrate from ".$_POST["lowerbound"]. " to positive infinity (".$_POST["value"].") d".$_POST["variable"];
+   }
+   else{
+   $value = "integral of ".$_POST["value"]." d".$_POST["variable"];
+   }
+   }
+   include 'WolframAlphaEngine.php';
+   ?>
 
 <?php
 
